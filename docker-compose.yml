@@ -4,6 +4,8 @@ services:
     container_name: dind
     privileged: true
     user: root
+    ports:
+      - "2376:2376"
     environment:
       DOCKER_TLS_CERTDIR: /certs
     volumes:
@@ -29,7 +31,7 @@ services:
       - jenkins-data:/var/jenkins_home
       - /usr/bin/docker:/usr/bin/docker
     ports:
-      - "8081:8081"
+      - "8080:8080"
       - "50000:50000"
     networks:
       - jenkins
